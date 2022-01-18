@@ -1,0 +1,79 @@
+<LoginScreen>:
+    GridLayout:
+        cols: 1
+        GridLayout:
+            cols: 1
+            Label:
+                text: "Welcome To Login Page"
+            TextInput:
+                id : username
+                hint_text: "Username"
+            TextInput:
+                id: password
+                hint_text: "Password"
+            Button:
+                text: "Login"
+                on_press: root.login(root.ids.username.text, root.ids.password.text)
+            Label:
+                id: alert
+                text: ""
+        GridLayout:
+            cols: 2
+            Button:
+                text: "Forgot Password?"
+            Button:
+                text: "Sign Up"
+                on_press: root.sign_up()
+
+<SignUpScreen>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Register"
+        TextInput:
+            id: username
+            hint_text: "Create username"
+        TextInput:
+            id: password
+            hint_text: "Create passwrod"
+        Button:
+            text: "Submit"
+            on_press: root.add_user(root.ids.username.text, root.ids.password.text)
+
+<SuccessRegisterScreen>:
+    GridLayout:
+        cols: 1
+        Label:
+            text: "Anda Berhasil Membuat Akun"
+        Button:
+            text: "Login"
+            on_press: root.login()
+
+<HomeScreen>:
+    GridLayout:
+        cols: 1
+        Button:
+            text: "Log Out"
+            on_press: root.logout()
+        Label:
+            text: "How do you feel?"
+        TextInput:
+            id: feel
+            hint_text: "Try to happy,sad, unloved"
+        Button:
+            text: "Enlighten me"
+            on_press: root.search(root.ids.feel.text)
+        Label:
+            id: quote
+            text: ""
+
+<RootWidget>:
+    LoginScreen:
+        name: "login_screen"
+    SignUpScreen:
+        name: "signup_screen"
+    SuccessRegisterScreen:
+        name: 'successregister_screen'
+    HomeScreen:
+        name: "home_screen"
+    
